@@ -1,10 +1,37 @@
 import React, { ReactNode } from "react";
-import sunsetImage from "images/sunset.jpg";
+import { Header } from "components/headers/Header";
+
+import morningSky from "images/alessio-soggetti-gdE-5Oui1Y0-unsplash.jpg";
+import eveningSky from "images/anton-darius-ebHCU8n7G38-unsplash.jpg";
+import nightSky from "images/nathan-anderson-L95xDkSSuWw-unsplash.jpg";
 
 export const MainLayout = ({ children }: { children: ReactNode }) => {
+  const currentImage = () => {
+    const hour = new Date().getHours();
+    if (hour > 7 && 15 > hour) {
+      return morningSky;
+    }
+    if (hour >= 15 && 19 > hour) {
+      return eveningSky;
+    }
+    return nightSky;
+  };
+
   return (
-    <>
-      <p
+    <div
+      style={{
+        backgroundImage: `url(${currentImage()})`,
+        backgroundSize: "cover",
+        backgroundPosition: "top",
+        backgroundRepeat: "no-repeat",
+        width: "100vw",
+        height: "100vh",
+        // padding: 200,
+        // margin: 10,
+      }}
+    >
+      <Header />
+      <div
         style={{
           display: "flex",
           // justifyContent: "center",
@@ -12,19 +39,8 @@ export const MainLayout = ({ children }: { children: ReactNode }) => {
           flexDirection: "column",
         }}
       >
-        <p
-          style={{
-            backgroundImage: `url(${sunsetImage})`,
-            backgroundSize: "contain",
-            width: "100vw",
-            height: "100vh",
-            // padding: 200,
-            // margin: 10,
-          }}
-        >
-          {children}
-        </p>
-      </p>
-    </>
+        {children}
+      </div>
+    </div>
   );
 };
