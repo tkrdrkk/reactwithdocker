@@ -2,7 +2,10 @@ import { Box, Button, Modal, ModalProps, styled } from "@mui/material";
 import mountainPhoto from "images/simon-berger-twukN12EN7c-unsplash.jpg";
 
 const StyledModal = styled(Modal)({
-  // backgroundImage: `url(${mountainPhoto})`,
+  backgroundImage: `url(${mountainPhoto})`,
+  backgroundSize: "cover",
+  backgroundPosition: "center",
+  backgroundRepeat: "no-repeat",
 });
 
 export const GlobalMenuModal = ({
@@ -24,18 +27,11 @@ export const GlobalMenuModal = ({
           boxShadow: 24,
           // border: "2px solid #000",
           p: 4,
-          backgroundImage: `url(${mountainPhoto})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          backgroundRepeat: "no-repeat",
         }}
       >
         <p
           style={{
-            // border: "2px solid #000",
-            // margin: 4,
             padding: 4,
-            // height: "50vh",
             display: "grid",
             justifyContent: "center",
           }}
@@ -44,11 +40,10 @@ export const GlobalMenuModal = ({
           <p
             style={{
               flexDirection: "column",
-              border: "1px black dashed",
               justifySelf: "right",
             }}
           >
-            <p>
+            <div>
               <Button
                 onClick={() => {
                   alert("hello");
@@ -57,15 +52,7 @@ export const GlobalMenuModal = ({
               >
                 Hello!
               </Button>
-            </p>
-            <Button
-              onClick={() => {
-                alert("hello");
-              }}
-              variant="contained"
-            >
-              Hello!
-            </Button>
+            </div>
           </p>
         </p>
       </Box>
