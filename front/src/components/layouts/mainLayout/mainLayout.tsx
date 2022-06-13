@@ -20,23 +20,23 @@ export const MainLayout = ({ children }: { children: ReactNode }) => {
   return (
     <div
       style={{
-        backgroundImage: `url(${currentImage()})`,
+        // backgroundImage: `url(${currentImage()})`,
+        backgroundImage: `url(${morningSky})`,
         backgroundSize: "cover",
         backgroundPosition: "top",
         backgroundRepeat: "no-repeat",
         width: "100vw",
         height: "100vh",
-        // padding: 200,
-        // margin: 10,
+        display: "flex",
+        flexDirection: "column",
       }}
     >
       <Header />
       <div
         style={{
-          display: "flex",
-          // justifyContent: "center",
-          // alignItems: "center",
-          flexDirection: "column",
+          padding: 10,
+          border: "2px #000 dashed", // FIXME for dev
+          flexGrow: 1,
         }}
       >
         {children}

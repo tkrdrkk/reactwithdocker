@@ -47,7 +47,10 @@
     ]
   },
   "devDependencies": {
+    "@commitlint/cli": "^17.0.2",
+    "@commitlint/config-conventional": "^17.0.2",
     "@types/testing-library__jest-dom": "^5.14.3",
-    "@types/testing-library__user-event": "^4.2.0"
+    "@types/testing-library__user-event": "^4.2.0",
+    "husky": "^8.0.1"
   }
 }

@@ -2,10 +2,10 @@ import { Box, Button, Modal, ModalProps, styled } from "@mui/material";
 import mountainPhoto from "images/simon-berger-twukN12EN7c-unsplash.jpg";
 
 const StyledModal = styled(Modal)({
-  backgroundImage: `url(${mountainPhoto})`,
-  backgroundSize: "cover",
-  backgroundPosition: "center",
-  backgroundRepeat: "no-repeat",
+  // backgroundImage: `url(${mountainPhoto})`,
+  // backgroundSize: "cover",
+  // backgroundPosition: "center",
+  // backgroundRepeat: "no-repeat",
 });
 
 export const GlobalMenuModal = ({
@@ -21,8 +21,8 @@ export const GlobalMenuModal = ({
           top: "50%",
           left: "50%",
           transform: "translate(-50%, -50%)",
-          width: "50vw",
-          height: "50vh",
+          width: "75vw",
+          height: "75vh",
           bgcolor: "background.paper",
           boxShadow: 24,
           // border: "2px solid #000",
