@@ -1,0 +1,12 @@
+projects:
+  boardme:
+    schemaPath: src/graphql/schema.json
+    includes:
+      - src/api/graphql/**/*.ts
+    excludes:
+      - ./amplify/**
+    extensions:
+      amplify:
+        codeGenTarget: typescript
+        generatedFileName: src/api/graphql/API.ts
+        docsFilePath: src/api/graphql
