@@ -1,19 +1,33 @@
 import SettingsIcon from "@mui/icons-material/Settings";
 import MenuIcon from "@mui/icons-material/Menu";
+import AddIcon from "@mui/icons-material/Add";
 import { AppBar, IconButton, Toolbar, Typography } from "@mui/material";
 import React from "react";
 import { GlobalMenuModal } from "components/modals/globalMenuModal";
 import { useToggle } from "hooks/useToggle";
+import { ShotBulletModal } from "features/bullet/components/ShotBulletModal";
 
 export const Header = () => {
   const { isOpen: isOpenMenu, open: openMenu, close: closeMenu } = useToggle();
+  const {
+    isOpen: isOpenShotBullet,
+    open: openShotBullet,
+    close: closeShotBullet,
+  } = useToggle();
 
-  const handleMenu = (event: React.MouseEvent<HTMLElement>) => {
+  const handleOpenMenu = (event: React.MouseEvent<HTMLElement>) => {
     openMenu();
   };
 
-  const handleClose = () => {
+  const handleCloseMenu = () => {
     closeMenu();
+  };
+  const handleOpenShotBullet = (event: React.MouseEvent<HTMLElement>) => {
+    openShotBullet();
+  };
+
+  const handleCloseShotBullet = () => {
+    closeShotBullet();
   };
 
   return (
@@ -31,6 +45,18 @@ export const Header = () => {
         >
           <MenuIcon />
         </IconButton>
+        <div style={{ flexGrow: 1, textAlign: "center" }}>
+          <IconButton
+            size="large"
+            edge="start"
+            color="inherit"
+            aria-label="menu"
+            sx={{ mr: 2, border: "1px #000 solid" }}
+            onClick={handleOpenShotBullet}
+          >
+            <AddIcon />
+          </IconButton>
+        </div>
         <Typography
           variant="h6"
           component="div"
@@ -39,7 +65,7 @@ export const Header = () => {
             textAlign: "center",
           }}
         >
-          Photos
+          Bulletme
         </Typography>
         <div>
           <IconButton
@@ -47,14 +73,19 @@ export const Header = () => {
             aria-label="account of current user"
             aria-controls="menu-appbar"
             aria-haspopup="true"
-            onClick={handleMenu}
+            onClick={handleOpenMenu}
             color="inherit"
           >
             <SettingsIcon />
           </IconButton>
         </div>
       </Toolbar>
-      <GlobalMenuModal open={isOpenMenu} onClose={handleClose} />
+      <GlobalMenuModal open={isOpenMenu} onClose={handleCloseMenu} />
+      <ShotBulletModal
+        open={isOpenShotBullet}
+        onClose={handleCloseShotBullet}
+        forceClose={handleCloseShotBullet}
+      />
     </AppBar>
   );
 };

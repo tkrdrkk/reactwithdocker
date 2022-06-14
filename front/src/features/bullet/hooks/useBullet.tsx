@@ -1,15 +1,14 @@
-import { useState, useEffect } from "react";
 import { Bullet } from "api/graphql/API";
+import { useState, useEffect } from "react";
 
-export const useBullets = () => {
-  const [bullets, setBullets] = useState<Bullet[]>([]);
-  useEffect(() => {
-    setBullets([]);
+export const useBullet = () => {
+  const [bullet, setBullet] = useState({ subject: "", body: "" } as Bullet);
+  const setSubject = (subject: Bullet["subject"]) => {
+    setBullet((prev) => ({ ...prev, subject: subject }));
+  };
+  const setBody = (body: Bullet["body"]) => {
+    setBullet((prev) => ({ ...prev, body: body }));
+  };
 
-    return () => {
-      setBullets([]);
-    };
-  }, []);
-
-  return { bullets };
+  return { bullet, setSubject, setBody };
 };

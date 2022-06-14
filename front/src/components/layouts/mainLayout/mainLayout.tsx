@@ -34,9 +34,13 @@ export const MainLayout = ({ children }: { children: ReactNode }) => {
       <Header />
       <div
         style={{
+          display: "flex",
+          backgroundColor: "skyblue",
           padding: 10,
           border: "2px #000 dashed", // FIXME for dev
           flexGrow: 1,
+          alignItems: "center",
+          justifyContent: "center",
         }}
       >
         {children}
