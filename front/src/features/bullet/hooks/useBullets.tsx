@@ -9,7 +9,6 @@ import { API, graphqlOperation } from "aws-amplify";
 import { onCreateBullet, onDeleteBullet } from "api/graphql/subscriptions";
 import { ZenObservable } from "zen-observable-ts";
 
-// TODO deleteも反応させたい
 const subscribeOnCreateBullet = (setBullets: (newBullet: Bullet) => void) => {
   const client = API.graphql(graphqlOperation(onCreateBullet));
   let subscription: ZenObservable.Subscription;
