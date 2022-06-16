@@ -35,9 +35,7 @@ export const MainLayout = ({ children }: { children: ReactNode }) => {
       <div
         style={{
           display: "flex",
-          backgroundColor: "skyblue",
           padding: 10,
-          border: "2px #000 dashed", // FIXME for dev
           flexGrow: 1,
           alignItems: "center",
           justifyContent: "center",
@@ -45,6 +43,10 @@ export const MainLayout = ({ children }: { children: ReactNode }) => {
       >
         {children}
       </div>
+
+      <footer style={{ textAlign: "center" }}>
+        ©tokiorush {new Date().getFullYear()}
+      </footer>
     </div>
   );
 };

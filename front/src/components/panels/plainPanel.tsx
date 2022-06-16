@@ -10,7 +10,6 @@ export const PlainPanel = ({
       display="flex"
       flexDirection="column"
       alignItems="center"
-      border="1px #000 dashed"
       p={1}
       m={1}
       gridArea={title}
@@ -18,7 +17,7 @@ export const PlainPanel = ({
       borderRadius={"16px"}
     >
       <h3>{title}</h3>
-      <div>{children}</div>
+      <div style={{ width: "90%" }}>{children}</div>
     </Box>
   );
 };

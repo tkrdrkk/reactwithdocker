@@ -5,7 +5,7 @@ import { AppBar, IconButton, Toolbar, Typography } from "@mui/material";
 import React from "react";
 import { GlobalMenuModal } from "components/modals/globalMenuModal";
 import { useToggle } from "hooks/useToggle";
-import { ShotBulletModal } from "features/bullet/components/ShotBulletModal";
+import { ShootBulletModal } from "features/bullet/components/ShootBulletModal";
 
 export const Header = () => {
   const { isOpen: isOpenMenu, open: openMenu, close: closeMenu } = useToggle();
@@ -81,7 +81,7 @@ export const Header = () => {
         </div>
       </Toolbar>
       <GlobalMenuModal open={isOpenMenu} onClose={handleCloseMenu} />
-      <ShotBulletModal
+      <ShootBulletModal
         open={isOpenShotBullet}
         onClose={handleCloseShotBullet}
         forceClose={handleCloseShotBullet}

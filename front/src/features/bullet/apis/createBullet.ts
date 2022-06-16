@@ -6,8 +6,6 @@ export const createBullet = async (input: CreateBulletInput) => {
     const gqlResponse = await API.graphql(
       graphqlOperation(amplifyCreateBullet, { input: { ...input } })
     );
-    // const gqlResponse = "test";
-    console.log(gqlResponse);
   } catch (e) {
     console.log(e);
   }

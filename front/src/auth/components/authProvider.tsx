@@ -1,12 +1,21 @@
-import { Authenticator } from "@aws-amplify/ui-react";
+import { Authenticator, Theme } from "@aws-amplify/ui-react";
 import "@aws-amplify/ui-react/styles.css";
+import styles from "./authProvider.module.css";
 
-import React, { PropsWithChildren } from "react";
+import { PropsWithChildren } from "react";
+import { setJapanese } from "./i18nProvider";
+
+// 日本語化
+setJapanese();
 
 export const AuthProvider = ({ children }: PropsWithChildren) => {
   return (
-    <Authenticator>
-      {({ signOut, user }) => <div>{children}</div>}
+    <Authenticator
+      hideSignUp
+      variation="modal"
+      className={styles.authenticator}
+    >
+      <Authenticator.Provider>{children}</Authenticator.Provider>
     </Authenticator>
   );
 };

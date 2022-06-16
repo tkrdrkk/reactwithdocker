@@ -5,7 +5,7 @@ import { useState } from "react";
 import { createBullet } from "../apis/createBullet";
 import { useBullet } from "../hooks/useBullet";
 
-export const ShotBulletModal = ({
+export const ShootBulletModal = ({
   open,
   onClose,
   forceClose,
@@ -26,26 +26,30 @@ export const ShotBulletModal = ({
 
   return (
     <PlainModal open={open} onClose={onClose} {...others}>
-      <h1>Shot a bullet!</h1>
-      {/* <div
+      <div
         style={{
           display: "flex",
           flexDirection: "column",
-          justifyContent: "space-between",
-          border: "1px #000 solid",
-          height: "100%",
+          minWidth: "70%",
         }}
-      > */}
-      <TextField label={"subject"} onChange={handleChangeSubject} />
-      <TextField label={"body"} onChange={handleChangeBody} />
-      <Button
-        onClick={handleClickShot}
-        variant="contained"
-        sx={{ position: "absolute", right: "20%", bottom: "20%" }}
       >
-        Shot!
-      </Button>
-      {/* </div> */}
+        <h1 style={{ textAlign: "center" }}>Shoot a bullet!</h1>
+        <TextField
+          sx={{ m: 1 }}
+          label={"subject"}
+          onChange={handleChangeSubject}
+        />
+        <TextField sx={{ m: 1 }} label={"body"} onChange={handleChangeBody} />
+        <div style={{ margin: "10% 5% 5% 10%", textAlign: "right" }}>
+          <Button
+            onClick={handleClickShot}
+            variant="contained"
+            // sx={{ position: "absolute", right: "20%", bottom: "20%" }}
+          >
+            Shoot!
+          </Button>
+        </div>
+      </div>
     </PlainModal>
   );
 };

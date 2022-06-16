@@ -2,13 +2,6 @@ import { Box, Button, Modal, ModalProps, styled } from "@mui/material";
 import mountainPhoto from "images/simon-berger-twukN12EN7c-unsplash.jpg";
 import { ReactNode } from "react";
 
-const StyledModal = styled(Modal)({
-  // backgroundImage: `url(${mountainPhoto})`,
-  // backgroundSize: "cover",
-  // backgroundPosition: "center",
-  // backgroundRepeat: "no-repeat",
-});
-
 export const PlainModal = ({
   open,
   onClose,
@@ -16,7 +9,7 @@ export const PlainModal = ({
   ...others
 }: Omit<ModalProps, "children"> & { children: ReactNode }) => {
   return (
-    <StyledModal open={open} onClose={onClose} {...others}>
+    <Modal open={open} onClose={onClose} {...others}>
       <Box
         sx={{
           position: "absolute",
@@ -27,7 +20,7 @@ export const PlainModal = ({
           height: "75vh",
           bgcolor: "background.paper",
           boxShadow: 24,
-          border: "2px solid #000",
+          borderRadius: "20px",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
@@ -49,6 +42,6 @@ export const PlainModal = ({
           {children}
         </Box>
       </Box>
-    </StyledModal>
+    </Modal>
   );
 };

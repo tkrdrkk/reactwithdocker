@@ -19,10 +19,7 @@ export const Main = () => {
         <MainLayout>
           <Box
             display="grid"
-            // justifyContent="space-between"
             height="1fr"
-            // gridTemplateColumns={"repeat(2, 1fr)"}
-            border="1px dashed #00F"
             gridTemplateColumns={"50% 50%"}
             gridTemplateRows={"100px 1fr 1fr"}
             gridTemplateAreas={`
@@ -31,7 +28,6 @@ export const Main = () => {
             " BooksPanel  BulletPanel  "
             `}
             width="100vw"
-            sx={{ backgroundColor: "greenyellow" }}
           >
             <h1 style={{ gridArea: "Title", textAlign: "center" }}>
               Here you are!
