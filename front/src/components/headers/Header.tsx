@@ -10,9 +10,9 @@ import { ShootBulletModal } from "features/bullet/components/ShootBulletModal";
 export const Header = () => {
   const { isOpen: isOpenMenu, open: openMenu, close: closeMenu } = useToggle();
   const {
-    isOpen: isOpenShotBullet,
-    open: openShotBullet,
-    close: closeShotBullet,
+    isOpen: isOpenShootBullet,
+    open: openShootBullet,
+    close: closeShootBullet,
   } = useToggle();
 
   const handleOpenMenu = (event: React.MouseEvent<HTMLElement>) => {
@@ -22,12 +22,12 @@ export const Header = () => {
   const handleCloseMenu = () => {
     closeMenu();
   };
-  const handleOpenShotBullet = (event: React.MouseEvent<HTMLElement>) => {
-    openShotBullet();
+  const handleOpenShootBullet = (event: React.MouseEvent<HTMLElement>) => {
+    openShootBullet();
   };
 
-  const handleCloseShotBullet = () => {
-    closeShotBullet();
+  const handleCloseShootBullet = () => {
+    closeShootBullet();
   };
 
   return (
@@ -49,10 +49,14 @@ export const Header = () => {
           <IconButton
             size="large"
             edge="start"
-            color="inherit"
             aria-label="menu"
-            sx={{ mr: 2, border: "1px #000 solid" }}
-            onClick={handleOpenShotBullet}
+            sx={{
+              mr: 2,
+              color: "yellow",
+              backgroundColor: "silver",
+              borderRadius: "10px",
+            }}
+            onClick={handleOpenShootBullet}
           >
             <AddIcon />
           </IconButton>
@@ -82,9 +86,9 @@ export const Header = () => {
       </Toolbar>
       <GlobalMenuModal open={isOpenMenu} onClose={handleCloseMenu} />
       <ShootBulletModal
-        open={isOpenShotBullet}
-        onClose={handleCloseShotBullet}
-        forceClose={handleCloseShotBullet}
+        open={isOpenShootBullet}
+        onClose={handleCloseShootBullet}
+        forceClose={handleCloseShootBullet}
       />
     </AppBar>
   );

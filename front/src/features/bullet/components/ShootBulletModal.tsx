@@ -18,7 +18,7 @@ export const ShootBulletModal = ({
   const handleChangeBody = (event: React.ChangeEvent<HTMLInputElement>) => {
     setBody(event.target.value);
   };
-  const handleClickShot = () => {
+  const handleClickShoot = () => {
     createBullet({ ...bullet }).then(() => {
       forceClose();
     });
@@ -41,11 +41,7 @@ export const ShootBulletModal = ({
         />
         <TextField sx={{ m: 1 }} label={"body"} onChange={handleChangeBody} />
         <div style={{ margin: "10% 5% 5% 10%", textAlign: "right" }}>
-          <Button
-            onClick={handleClickShot}
-            variant="contained"
-            // sx={{ position: "absolute", right: "20%", bottom: "20%" }}
-          >
+          <Button onClick={handleClickShoot} variant="contained">
             Shoot!
           </Button>
         </div>
