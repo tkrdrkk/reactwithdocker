@@ -7,6 +7,6 @@ export const createBullet = async (input: CreateBulletInput) => {
       graphqlOperation(amplifyCreateBullet, { input: { ...input } })
     );
   } catch (e) {
-    console.log(e);
+    console.table(e);
   }
 };

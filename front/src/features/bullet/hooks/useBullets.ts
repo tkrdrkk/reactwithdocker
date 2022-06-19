@@ -1,13 +1,6 @@
 import { useState, useEffect } from "react";
-import {
-  Bullet,
-  OnCreateBulletSubscription,
-  OnDeleteBulletSubscription,
-} from "api/graphql/API";
+import { Bullet } from "api/graphql/API";
 import { listBullets } from "../apis/listBullets";
-import { API, graphqlOperation } from "aws-amplify";
-import { onCreateBullet, onDeleteBullet } from "api/graphql/subscriptions";
-import { ZenObservable } from "zen-observable-ts";
 import {
   subscribeOnCreateBullet,
   subscribeOnDeleteBullet,
@@ -15,6 +8,9 @@ import {
 
 export const useBullets = () => {
   const [bullets, setBullets] = useState<Bullet[]>([]);
+  const forceListBullets = () => {
+    listBullets().then((res) => setBullets(res));
+  };
 
   useEffect(() => {
     // 初回の一覧表示
@@ -23,7 +19,7 @@ export const useBullets = () => {
     });
     // 購読
     const subscriptionOnCreate = subscribeOnCreateBullet((newBullet) => {
-      setBullets((prev) => [...prev, newBullet]);
+      setBullets((prev) => [newBullet, ...prev]);
     });
     const subscriptionOnDelete = subscribeOnDeleteBullet((deletedBullet) => {
       setBullets((prev) => [...prev].filter((b) => b.id !== deletedBullet.id));
@@ -36,5 +32,5 @@ export const useBullets = () => {
     };
   }, []);
 
-  return { bullets };
+  return { bullets, forceListBullets };
 };

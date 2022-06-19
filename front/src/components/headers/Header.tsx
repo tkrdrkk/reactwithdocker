@@ -1,7 +1,14 @@
 import SettingsIcon from "@mui/icons-material/Settings";
 import MenuIcon from "@mui/icons-material/Menu";
 import AddIcon from "@mui/icons-material/Add";
-import { AppBar, IconButton, Toolbar, Typography } from "@mui/material";
+import {
+  AppBar,
+  IconButton,
+  MenuItem,
+  Select,
+  Toolbar,
+  Typography,
+} from "@mui/material";
 import React from "react";
 import { GlobalMenuModal } from "components/modals/globalMenuModal";
 import { useToggle } from "hooks/useToggle";
@@ -83,6 +90,22 @@ export const Header = () => {
             <SettingsIcon />
           </IconButton>
         </div>
+        {/* <div>
+          <Select>
+            {[
+              "morning",
+              "noon",
+              "afternoon",
+              "evening",
+              "night",
+              "midnight",
+            ].map((tz) => (
+              <MenuItem key={tz} value={tz}>
+                {tz}
+              </MenuItem>
+            ))}
+          </Select>
+        </div> */}
       </Toolbar>
       <GlobalMenuModal open={isOpenMenu} onClose={handleCloseMenu} />
       <ShootBulletModal

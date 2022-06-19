@@ -39,6 +39,9 @@ export const setJapanese = () => {
       Username: "ユーザー名",
       "Username cannot be empty": "ユーザー名は必須入力です",
       "Username/client id combination not found.": "ユーザー名が見つかりません",
+      "We Sent A Code": "認証コードを送信しました。",
+      "Your code is on the way. To log in, enter the code we sent you. It may take a minute to arrive.":
+        "認証コードを送信しました。コードを入力してログインしてください。コードを受信するまで、数分程度かかる場合があります。",
     },
   });
 };

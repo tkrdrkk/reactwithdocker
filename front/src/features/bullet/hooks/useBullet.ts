@@ -9,6 +9,9 @@ export const useBullet = () => {
   const setBody = (body: Bullet["body"]) => {
     setBullet((prev) => ({ ...prev, body: body }));
   };
+  const resetBullet = () => {
+    setBullet({ subject: "", body: "" } as Bullet);
+  };
 
-  return { bullet, setSubject, setBody };
+  return { bullet, setSubject, setBody, resetBullet };
 };
